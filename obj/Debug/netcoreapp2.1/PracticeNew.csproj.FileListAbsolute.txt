@@ -1,0 +1,11 @@
+C:\Users\elev\Documents\dev\PracticeNew\bin\Debug\netcoreapp2.1\PracticeNew.deps.json
+C:\Users\elev\Documents\dev\PracticeNew\bin\Debug\netcoreapp2.1\PracticeNew.runtimeconfig.json
+C:\Users\elev\Documents\dev\PracticeNew\bin\Debug\netcoreapp2.1\PracticeNew.runtimeconfig.dev.json
+C:\Users\elev\Documents\dev\PracticeNew\bin\Debug\netcoreapp2.1\PracticeNew.dll
+C:\Users\elev\Documents\dev\PracticeNew\bin\Debug\netcoreapp2.1\PracticeNew.pdb
+C:\Users\elev\Documents\dev\PracticeNew\obj\Debug\netcoreapp2.1\PracticeNew.csprojAssemblyReference.cache
+C:\Users\elev\Documents\dev\PracticeNew\obj\Debug\netcoreapp2.1\PracticeNew.csproj.CoreCompileInputs.cache
+C:\Users\elev\Documents\dev\PracticeNew\obj\Debug\netcoreapp2.1\PracticeNew.AssemblyInfoInputs.cache
+C:\Users\elev\Documents\dev\PracticeNew\obj\Debug\netcoreapp2.1\PracticeNew.AssemblyInfo.cs
+C:\Users\elev\Documents\dev\PracticeNew\obj\Debug\netcoreapp2.1\PracticeNew.dll
+C:\Users\elev\Documents\dev\PracticeNew\obj\Debug\netcoreapp2.1\PracticeNew.pdb
