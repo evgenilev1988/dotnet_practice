@@ -43,46 +43,7 @@ namespace PracticeNew
             private static string[] morseCode = new string[]{
             ".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."
             };
-            /*
-    Data Structures:
-
-    Array
-    Linked List
-    Binary Tree, Binary Search Tree, Red-Black Tree
-    Heap
-    Hash Table
-    Stack
-    Queue
-    Trie
-    Graph (both directed and undirected)
-
-
-    Algorithms:
-
-    Sorting
-    Bubble Sort
-    Merge Sort
-    Quick Sort
-    Radix/Bucket Sort
-    Traversals (On multiple data structures)
-    Depth First Search
-    Breadth First Search
-
-
-    Object Oriented Design:
-
-    You should have a working knowledge of a few common and useful design patterns (singleton, factory, adapter, bridge, visitor, command, proxy, observer, etc.) as well as know how to write software in an object oriented way with appropriate use of inheritance and aggregation.
-
-
-
-    Cultural Survey:
-
-    It would be good to review our 14 leadership principals, because the survey will focus around those. This portion of the assessment is equally as important as the technical component. Have a look at our 14 leadership principles (link below) and think about experiences in your career that pertain to each principle.
-
-    https://www.amazon.jobs/principles
-
-
-             */
+		
             static void Main(string[] args)
             {
                 int[] houses = new int[] { 1, 0, 0, 1, 0, 1, 0, 0 };
@@ -192,26 +153,6 @@ namespace PracticeNew
 
 
             }
-
-            /*public static int FirstBadVersion(int n)
-            {
-                int start = 1;
-                int end = n;
-
-                while (true)
-                {
-                    int median = (start + end) / 2;
-
-                    if (IsBadVersion(median + 1) && IsBadVersion(median) && IsBadVersion(median - 1) == false)
-                        return median;
-
-                    if (IsBadVersion(median))
-                        end = median - 1;
-                    else
-                        start = median + 1;
-                }
-            }*/
-
 
             public static bool IsPalindrome(string s)
             {
@@ -987,7 +928,5 @@ namespace PracticeNew
             }
 
         }
-
-
     }
 }
