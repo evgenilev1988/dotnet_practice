@@ -9,26 +9,21 @@ using System.Linq;
 
 namespace PracticeNew
 {
-
-
     internal class SingleLinkedList
     {
         internal Node head;
-
-
-
     }
 
     internal class Node
     {
         internal int data;
         internal Node next;
-        public Node(int d)
+        
+		public Node(int d)
         {
             data = d;
             next = null;
         }
-
 
         public class ListNode
         {
@@ -36,7 +31,6 @@ namespace PracticeNew
             public ListNode next;
             public ListNode(int x) { val = x; }
         }
-
 
         public class Program
         {
