@@ -18,8 +18,8 @@ namespace PracticeNew
     {
         internal int data;
         internal Node next;
-        
-		public Node(int d)
+
+        public Node(int d)
         {
             data = d;
             next = null;
@@ -37,7 +37,7 @@ namespace PracticeNew
             private static string[] morseCode = new string[]{
             ".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."
             };
-		
+
             static void Main(string[] args)
             {
                 int[] houses = new int[] { 1, 0, 0, 1, 0, 1, 0, 0 };
@@ -115,7 +115,69 @@ namespace PracticeNew
                 StrStr("mississippi", "issipi");
                 ConvertToTitle(52);
                 IsPalindrome("A man, a plan, a canal -- Panama");
+                
                 MostCommonWord("a, a, a, a, b,b,b,c, c", new string[] { "a" });
+                MaxProfit(new int[] { 2,4,1 });
+                Console.WriteLine(MaximumProduct(new int[] { -710,-107,-851,657,-14,-859,278,-182,-749,718,-640,127,-930,-462,694,969,143,309,904,-651,160,451,-159,-316,844,-60,611,-169,-73,721,-902,338,-20,-890,-819,-644,107,404,150,-219,459,-324,-385,-118,-307,993,202,-147,62,-94,-976,-329,689,870,532,-686,371,-850,-186,87,878,989,-822,-350,-948,-412,161,-88,-509,836,-207,-60,771,516,-287,-366,-512,509,904,-459,683,-563,-766,-837,-333,93,893,303,908,532,-206,990,280,826,-13,115,-732,525,-939,-787 }));
+                Console.WriteLine(BackspaceCompare("a#c","b"));
+            }
+
+    
+            // 844. Backspace String Compare
+            public static bool BackspaceCompare(string S, string T) {
+                int i=0;
+                while(i<S.Length)
+                {
+                    if(S[i] == '#')
+                    {
+                       S = removeLetters(S,i);
+                       i = 0; 
+                    }
+                    else
+                        i++;
+                }
+                i = 0;
+                while(i<T.Length)
+                {
+                    if(T[i] == '#')
+                    {
+                        T = removeLetters(T,i);
+                        i = 0;
+                    }
+                    else
+                        i++;
+                }
+
+                return S.Equals(T);
+            }
+
+            private static string removeLetters(string text,int location)
+            {
+                if(location == 0)
+                    return text.Remove(location,1);
+                    
+                return text.Remove(location,1).Remove(location-1,1);
+            }
+
+            // 628. Maximum Product of Three Numbers
+            public static int MaximumProduct(int[] nums) {
+                Array.Sort(nums);
+                return Math.Max(nums[nums.Length-1] * nums[nums.Length-2] * nums[nums.Length-3],nums[0] * nums[1] * nums[nums.Length-1]);
+            }
+
+
+            //121. Best Time to Buy and Sell Stock
+            public static int MaxProfit(int[] prices)
+            {
+                int minprice = int.MaxValue;
+                int maxprofit = 0;
+                for (int i = 0; i < prices.Length; i++) {
+                    if (prices[i] < minprice)
+                        minprice = prices[i];
+                    else if (prices[i] - minprice > maxprofit)
+                        maxprofit = prices[i] - minprice;
+                }
+                return maxprofit;
             }
 
             public static string MostCommonWord(string paragraph, string[] banned)
@@ -124,7 +186,7 @@ namespace PracticeNew
                 Dictionary<string, int> aaa = new Dictionary<string, int>();
                 foreach (string s in results)
                 {
-                    if(s == "")
+                    if (s == "")
                         continue;
                     if (aaa.ContainsKey(s))
                         aaa[s]++;
