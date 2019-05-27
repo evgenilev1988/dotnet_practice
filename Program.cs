@@ -115,33 +115,74 @@ namespace PracticeNew
                 StrStr("mississippi", "issipi");
                 ConvertToTitle(52);
                 IsPalindrome("A man, a plan, a canal -- Panama");
-                
+
                 MostCommonWord("a, a, a, a, b,b,b,c, c", new string[] { "a" });
-                MaxProfit(new int[] { 2,4,1 });
-                Console.WriteLine(MaximumProduct(new int[] { -710,-107,-851,657,-14,-859,278,-182,-749,718,-640,127,-930,-462,694,969,143,309,904,-651,160,451,-159,-316,844,-60,611,-169,-73,721,-902,338,-20,-890,-819,-644,107,404,150,-219,459,-324,-385,-118,-307,993,202,-147,62,-94,-976,-329,689,870,532,-686,371,-850,-186,87,878,989,-822,-350,-948,-412,161,-88,-509,836,-207,-60,771,516,-287,-366,-512,509,904,-459,683,-563,-766,-837,-333,93,893,303,908,532,-206,990,280,826,-13,115,-732,525,-939,-787 }));
-                Console.WriteLine(BackspaceCompare("a#c","b"));
+                MaxProfit(new int[] { 2, 4, 1 });
+                Console.WriteLine(MaximumProduct(new int[] { -710, -107, -851, 657, -14, -859, 278, -182, -749, 718, -640, 127, -930, -462, 694, 969, 143, 309, 904, -651, 160, 451, -159, -316, 844, -60, 611, -169, -73, 721, -902, 338, -20, -890, -819, -644, 107, 404, 150, -219, 459, -324, -385, -118, -307, 993, 202, -147, 62, -94, -976, -329, 689, 870, 532, -686, 371, -850, -186, 87, 878, 989, -822, -350, -948, -412, 161, -88, -509, 836, -207, -60, 771, 516, -287, -366, -512, 509, 904, -459, 683, -563, -766, -837, -333, 93, 893, 303, 908, 532, -206, 990, 280, 826, -13, 115, -732, 525, -939, -787 }));
+                Console.WriteLine(BackspaceCompare("a#c", "b"));
+                Console.WriteLine(FindMaxConsecutiveOnes(new int[] { 1, 1, 0, 1, 1, 1 }));
+                Console.WriteLine(Intersection(new int[] { 1,2 }, new int[] { 1,1 }));
             }
 
-    
-            // 844. Backspace String Compare
-            public static bool BackspaceCompare(string S, string T) {
-                int i=0;
-                while(i<S.Length)
+            // 349. Intersection of Two Arrays
+            public static int[] Intersection(int[] nums1, int[] nums2)
+            {
+                int[] Multiple = nums1.Length > nums2.Length ? nums2 : nums1;
+                List<int> intersection = new List<int>();
+                List<int> Longer = nums1.Length <= nums2.Length ? nums2.ToList() : nums1.ToList();
+
+                for (int i = 0; i < Multiple.Length; i++)
                 {
-                    if(S[i] == '#')
+                    if (Longer.Exists(x => x == Multiple[i]))
+                        intersection.Add(Multiple[i]);
+                }
+
+                return intersection.Distinct().ToArray();
+            }
+
+            // 485. Max Consecutive Ones
+            public static int FindMaxConsecutiveOnes(int[] nums)
+            {
+                int maxOnes = 0;
+                int count = 0;
+
+                foreach (int i in nums)
+                {
+                    if (i == 0)
                     {
-                       S = removeLetters(S,i);
-                       i = 0; 
+                        count = 0;
+                        continue;
+                    }
+                    if (i == 1)
+                        count++;
+
+                    if (count > maxOnes)
+                        maxOnes = count;
+                }
+
+                return maxOnes;
+            }
+
+            // 844. Backspace String Compare
+            public static bool BackspaceCompare(string S, string T)
+            {
+                int i = 0;
+                while (i < S.Length)
+                {
+                    if (S[i] == '#')
+                    {
+                        S = removeLetters(S, i);
+                        i = 0;
                     }
                     else
                         i++;
                 }
                 i = 0;
-                while(i<T.Length)
+                while (i < T.Length)
                 {
-                    if(T[i] == '#')
+                    if (T[i] == '#')
                     {
-                        T = removeLetters(T,i);
+                        T = removeLetters(T, i);
                         i = 0;
                     }
                     else
@@ -151,18 +192,19 @@ namespace PracticeNew
                 return S.Equals(T);
             }
 
-            private static string removeLetters(string text,int location)
+            private static string removeLetters(string text, int location)
             {
-                if(location == 0)
-                    return text.Remove(location,1);
-                    
-                return text.Remove(location,1).Remove(location-1,1);
+                if (location == 0)
+                    return text.Remove(location, 1);
+
+                return text.Remove(location, 1).Remove(location - 1, 1);
             }
 
             // 628. Maximum Product of Three Numbers
-            public static int MaximumProduct(int[] nums) {
+            public static int MaximumProduct(int[] nums)
+            {
                 Array.Sort(nums);
-                return Math.Max(nums[nums.Length-1] * nums[nums.Length-2] * nums[nums.Length-3],nums[0] * nums[1] * nums[nums.Length-1]);
+                return Math.Max(nums[nums.Length - 1] * nums[nums.Length - 2] * nums[nums.Length - 3], nums[0] * nums[1] * nums[nums.Length - 1]);
             }
 
 
@@ -171,7 +213,8 @@ namespace PracticeNew
             {
                 int minprice = int.MaxValue;
                 int maxprofit = 0;
-                for (int i = 0; i < prices.Length; i++) {
+                for (int i = 0; i < prices.Length; i++)
+                {
                     if (prices[i] < minprice)
                         minprice = prices[i];
                     else if (prices[i] - minprice > maxprofit)
